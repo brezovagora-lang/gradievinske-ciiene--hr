@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="hr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0f172a">
+<title>Građevinske cijene HR</title>
+<style>
+:root{--bg:#f4f7fb;--card:#fff;--ink:#0f172a;--muted:#64748b;--line:#e2e8f0;--blue:#2563eb;--blue2:#1d4ed8;--ok:#166534;--warn:#9a3412}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+button,input,select{font:inherit}.topbar{position:sticky;top:0;z-index:10;background:#0f172a;color:#fff;padding:12px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 6px 20px #0f172a18}
+.brand{display:flex;align-items:center;gap:10px;flex:1}.logo{width:38px;height:38px;border-radius:12px;background:#2563eb;display:grid;place-items:center;font-weight:900}.brand h1{font-size:16px;margin:0}.brand p{font-size:11px;color:#cbd5e1;margin:2px 0 0}.ghost{border:1px solid #334155;background:#111827;color:#fff;padding:9px 12px;border-radius:10px}
+main{max-width:1100px;margin:auto;padding:16px 16px 92px}.view{display:none}.view.active{display:block}.hero{background:linear-gradient(135deg,#0f172a,#1e3a8a);color:#fff;border-radius:22px;padding:24px;display:flex;justify-content:space-between;gap:20px;margin-bottom:14px}.hero h2{font-size:28px;margin:5px 0}.hero p{color:#dbeafe;max-width:620px;margin:0}.eyebrow{font-size:11px;font-weight:800;letter-spacing:.08em}.stamp{background:#ffffff14;border:1px solid #ffffff26;padding:10px 12px;border-radius:12px;height:max-content;font-size:12px}
+.kpi-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:14px 0}.kpi,.panel,.price-card,.contractor-card{background:var(--card);border:1px solid var(--line);border-radius:16px}.kpi{padding:14px}.kpi .v{font-size:24px;font-weight:900}.kpi .l{font-size:11px;color:var(--muted);margin-top:3px}.panel{padding:16px;margin:12px 0}.panel h3{margin:0 0 4px}.panel p{color:var(--muted);margin:4px 0}.coverage{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.coverage-row{background:#f8fafc;padding:10px;border-radius:12px}.coverage-top{display:flex;justify-content:space-between;font-size:12px}.bar{height:6px;background:#e2e8f0;border-radius:99px;margin-top:8px;overflow:hidden}.bar i{display:block;height:100%;background:#2563eb}.list .change{display:flex;justify-content:space-between;gap:10px;padding:11px 0;border-bottom:1px solid var(--line)}.list .change:last-child{border:0}.list small{color:var(--muted)}
+.section-title{display:flex;justify-content:space-between;align-items:center;gap:12px}.section-title h2{margin-bottom:3px}.section-title p{color:var(--muted);margin-top:0}.primary{border:0;background:var(--blue);color:white;padding:10px 14px;border-radius:11px;font-weight:800}.filters{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:9px;margin:12px 0}.filters input,.filters select,.wide-search{width:100%;border:1px solid var(--line);background:white;padding:11px 12px;border-radius:11px}.check{grid-column:1/-1;font-size:13px;color:#334155}.summary-strip{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.pill,.tag{display:inline-flex;align-items:center;background:#eef2ff;border-radius:999px;padding:6px 9px;font-size:11px}.tag.ok{background:#dcfce7;color:var(--ok)}.tag.review{background:#ffedd5;color:var(--warn)}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.price-card,.contractor-card{padding:15px}.card-top{display:flex;justify-content:space-between;gap:15px}.price{font-size:20px;font-weight:900;text-align:right}.company{font-size:12px;color:var(--muted);margin-top:3px}.tag-row{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0}.meta{display:grid;grid-template-columns:1fr 1fr;gap:7px;font-size:12px}.meta div{background:#f8fafc;padding:8px;border-radius:9px}.meta b{display:block;color:#64748b;font-size:10px;margin-bottom:2px}.source-link{display:inline-block;margin-top:10px;color:#2563eb;text-decoration:none;font-size:12px;font-weight:800}.notice{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;padding:12px;border-radius:12px;margin:10px 0}.hidden{display:none}.muted{color:var(--muted)}
+.bottom-nav{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);display:flex;justify-content:center;z-index:20;padding-bottom:env(safe-area-inset-bottom)}.bottom-nav button{width:min(25%,180px);border:0;background:#fff;color:#64748b;padding:10px 4px;font-size:11px}.bottom-nav button span{display:block;font-size:19px}.bottom-nav button.active{color:#1d4ed8;font-weight:900}.toast{position:fixed;left:50%;bottom:86px;transform:translate(-50%,20px);background:#0f172a;color:white;padding:10px 13px;border-radius:10px;opacity:0;pointer-events:none;transition:.2s;z-index:30}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:800px){main{padding:12px 12px 88px}.hero{display:block;padding:19px}.hero h2{font-size:23px}.stamp{display:inline-block;margin-top:13px}.kpi-grid{grid-template-columns:1fr 1fr}.kpi-grid .kpi:first-child{grid-column:1/-1}.coverage,.cards{grid-template-columns:1fr}.filters{grid-template-columns:1fr 1fr}.filters input:first-child{grid-column:1/-1}.brand p{display:none}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><div class="logo">G</div><div><h1>Građevinske cijene HR</h1><p>Live tržišna baza</p></div></div>
+  <button id="refreshBtn" class="ghost">Osvježi</button>
+</header>
+<main>
+<section id="view-dashboard" class="view active">
+  <div class="hero"><div><span class="eyebrow">TRŽIŠTE GRAĐEVINE · HRVATSKA</span><h2>Aktualne javno provjerene cijene</h2><p>Podaci se učitavaju iz centralne produkcijske baze i ažuriraju iz Supabasea.</p></div><div class="stamp" id="lastCheck">Učitavanje…</div></div>
+  <div id="statusBox" class="notice hidden"></div>
+  <div id="kpis" class="kpi-grid"></div>
+  <div class="panel"><h3>Pokrivenost po županijama</h3><p>Broj aktivnih tržišnih stavki</p><div id="countyCoverage" class="coverage"></div></div>
+  <div class="panel"><h3>Zadnje provjerene stavke</h3><p>Najnoviji zapisi prema vremenu provjere</p><div id="recentList" class="list"></div></div>
+</section>
+
+<section id="view-prices" class="view">
+  <div class="section-title"><div><h2>Cijene</h2><p>Filtriranje provjerenih tržišnih stavki.</p></div><button class="primary" id="exportBtn">Izvezi CSV</button></div>
+  <div class="filters">
+    <input id="searchInput" type="search" placeholder="Traži uslugu ili izvođača…">
+    <select id="countyFilter"><option value="">Sve županije</option></select>
+    <select id="activityFilter"><option value="">Sve djelatnosti</option></select>
+    <select id="unitFilter"><option value="">Sve jedinice</option></select>
+    <label class="check"><input id="comparableOnly" type="checkbox"> Samo strogo usporedive</label>
+  </div>
+  <div id="priceSummary" class="summary-strip"></div>
+  <div id="priceList" class="cards"></div>
+</section>
+
+<section id="view-contractors" class="view">
+  <div class="section-title"><div><h2>Izvođači</h2><p>Subjekti s javno provjerenim cijenama.</p></div></div>
+  <input id="contractorSearch" class="wide-search" type="search" placeholder="Traži izvođača…">
+  <div id="contractorList" class="cards" style="margin-top:12px"></div>
+</section>
+
+<section id="view-system" class="view">
+  <div class="section-title"><div><h2>Sustav</h2><p>Status produkcijske aplikacije.</p></div></div>
+  <div class="panel">
+    <h3>Centralna baza</h3>
+    <p><b>Supabase projekt:</b> Gradjevinski_cjenici_HR</p>
+    <p><b>Način rada:</b> javni read-only prikaz tržišnih podataka.</p>
+    <p><b>Privatni podaci:</b> Interijeri Deki nisu izloženi javnoj aplikaciji.</p>
+  </div>
+</section>
+</main>
+
+<nav class="bottom-nav">
+<button data-view="dashboard" class="active"><span>⌂</span>Početna</button>
+<button data-view="prices"><span>€</span>Cijene</button>
+<button data-view="contractors"><span>▦</span>Izvođači</button>
+<button data-view="system"><span>●</span>Sustav</button>
+</nav>
+<div id="toast" class="toast"></div>
+
+<script>
+const SUPABASE_URL='https://erbwvdwlqtzpladfrxuc.supabase.co';
+const SUPABASE_KEY='sb_publishable_W9M-M-AQ5B7HC8iOtVSvFQ_VX2qJ_yY';
+const CACHE_KEY='gchr-live-cache-v2';
+let rows=[];
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+const uniq=a=>[...new Set(a.filter(Boolean))].sort((a,b)=>String(a).localeCompare(String(b),'hr'));
+const num=v=>{const n=Number(v);return Number.isFinite(n)?n:null};
+const money=v=>num(v)!=null?Number(v).toLocaleString('hr-HR',{maximumFractionDigits:2})+' €':'—';
+function fmtDate(v){if(!v)return '—';const d=new Date(v);return Number.isNaN(d.getTime())?String(v):new Intl.DateTimeFormat('hr-HR',{dateStyle:'short',timeStyle:'short'}).format(d)}
+function toast(t){const e=$('#toast');e.textContent=t;e.classList.add('show');setTimeout(()=>e.classList.remove('show'),2200)}
+function loadCache(){try{return JSON.parse(localStorage.getItem(CACHE_KEY))||[]}catch{return[]}}
+function saveCache(x){try{localStorage.setItem(CACHE_KEY,JSON.stringify(x))}catch{}}
+async function fetchAll(){
+ const select='id,company,county,city,company_website,nkd_code,source_activity,normalized_activity,source_service_name,normalized_service,variant,unit,amount_eur,price_type,vat_status,vat_rate,material_status,scope_notes,source_url,source_format,checked_at,first_seen_at,last_seen_at,comparability_status,review_note';
+ const all=[];let offset=0;const page=1000;
+ while(true){
+  const url=`${SUPABASE_URL}/rest/v1/app_market_prices?select=${encodeURIComponent(select)}&order=checked_at.desc&limit=${page}&offset=${offset}`;
+  const res=await fetch(url,{headers:{apikey:SUPABASE_KEY}});
+  if(!res.ok)throw new Error('API '+res.status);
+  const part=await res.json();all.push(...part);if(part.length<page)break;offset+=page;
+ }
+ return all;
+}
+function normalize(r){return{id:r.id,company:r.company||'',county:r.county||'',city:r.city||'',web:r.company_website||'',activity:r.normalized_activity||r.source_activity||'',sourceName:r.source_service_name||'',service:r.normalized_service||r.source_service_name||'',variant:r.variant||'',unit:r.unit||'',amount:r.amount_eur,vat:r.vat_rate??'',vatStatus:r.vat_status||'',material:r.material_status||'',includes:r.scope_notes||'',checkedAt:r.checked_at||r.last_seen_at||'',source:r.source_url||'',comparable:r.comparability_status==='comparable',note:r.review_note||''}}
+async function refresh(){
+ $('#lastCheck').textContent='Osvježavanje…';$('#refreshBtn').disabled=true;
+ try{rows=(await fetchAll()).map(normalize);saveCache(rows);$('#statusBox').classList.add('hidden');toast('Učitano '+rows.length+' stavki')}
+ catch(e){rows=loadCache();const b=$('#statusBox');b.textContent=rows.length?'Live veza nije dostupna. Prikazuje se zadnja lokalna kopija ('+rows.length+' stavki).':'Nije moguće dohvatiti podatke iz centralne baze.';b.classList.remove('hidden')}
+ finally{$('#refreshBtn').disabled=false;renderAll()}
+}
+function latest(){return rows.map(x=>x.checkedAt).filter(Boolean).sort((a,b)=>new Date(b)-new Date(a))[0]||null}
+function renderAll(){renderDashboard();populateFilters();renderPrices();renderContractors();$('#lastCheck').textContent='Zadnja provjera: '+fmtDate(latest())}
+function renderDashboard(){
+ const companies=uniq(rows.map(x=>x.company)).length,counties=uniq(rows.map(x=>x.county)).length,comp=rows.filter(x=>x.comparable).length;
+ $('#kpis').innerHTML=[['Tržišnih stavki',rows.length],['Izvođača',companies],['Županija',counties+'/21'],['Strogo usporedivih',comp],['Za ručnu provjeru',rows.length-comp]].map(([l,v])=>'<div class="kpi"><div class="v">'+esc(v)+'</div><div class="l">'+esc(l)+'</div></div>').join('');
+ const counts={};rows.forEach(x=>counts[x.county]=(counts[x.county]||0)+1);const max=Math.max(1,...Object.values(counts));
+ $('#countyCoverage').innerHTML=Object.entries(counts).sort((a,b)=>b[1]-a[1]).map(([c,n])=>'<div class="coverage-row"><div class="coverage-top"><strong>'+esc(c)+'</strong><span>'+n+'</span></div><div class="bar"><i style="width:'+Math.max(4,n/max*100)+'%"></i></div></div>').join('')||'<div class="muted">Još nema podataka.</div>';
+ $('#recentList').innerHTML=rows.slice().sort((a,b)=>new Date(b.checkedAt)-new Date(a.checkedAt)).slice(0,8).map(x=>'<div class="change"><div><strong>'+esc(x.company)+'</strong><br><small>'+esc(x.service)+' · '+money(x.amount)+' '+esc(x.unit)+'</small></div><small>'+esc(fmtDate(x.checkedAt))+'</small></div>').join('')||'<div class="muted">Nema podataka.</div>';
+}
+function fill(sel,vals,label){const el=$(sel),cur=el.value;el.innerHTML='<option value="">'+label+'</option>'+vals.map(v=>'<option>'+esc(v)+'</option>').join('');el.value=vals.includes(cur)?cur:''}
+function populateFilters(){fill('#countyFilter',uniq(rows.map(x=>x.county)),'Sve županije');fill('#activityFilter',uniq(rows.map(x=>x.activity)),'Sve djelatnosti');fill('#unitFilter',uniq(rows.map(x=>x.unit)),'Sve jedinice')}
+function filtered(){const q=$('#searchInput').value.trim().toLowerCase(),c=$('#countyFilter').value,a=$('#activityFilter').value,u=$('#unitFilter').value,co=$('#comparableOnly').checked;return rows.filter(x=>(!q||[x.company,x.service,x.sourceName,x.activity,x.city].join(' ').toLowerCase().includes(q))&&(!c||x.county===c)&&(!a||x.activity===a)&&(!u||x.unit===u)&&(!co||x.comparable)).sort((x,y)=>(num(x.amount)??1e99)-(num(y.amount)??1e99))}
+function strictKey(x){return [x.county,x.activity,x.service,x.variant,x.unit,x.material,x.vatStatus,String(x.vat),x.includes].join('||')}
+function rank(x){if(!x.comparable)return null;const arr=rows.filter(y=>y.comparable&&strictKey(y)===strictKey(x)&&num(y.amount)!=null).sort((a,b)=>num(a.amount)-num(b.amount));const i=arr.findIndex(y=>String(y.id)===String(x.id));return i>=0?i+1:null}
+function priceCard(x){const r=rank(x),vat=x.vatStatus||((x.vat!==''&&x.vat!=null)?x.vat+' %':'Nije navedeno');return '<article class="price-card"><div class="card-top"><div><strong>'+esc(x.service||x.sourceName)+'</strong><div class="company">'+esc(x.company)+' · '+esc(x.city)+', '+esc(x.county)+'</div></div><div class="price">'+money(x.amount)+'<div class="company">'+esc(x.unit)+'</div></div></div><div class="tag-row"><span class="tag">'+esc(x.activity)+'</span>'+(x.variant?'<span class="tag">'+esc(x.variant)+'</span>':'')+'<span class="tag '+(x.comparable?'ok':'review')+'">'+(x.comparable?'Usporedivo':'Ručna provjera')+'</span>'+(r?'<span class="tag ok">Rang '+r+'</span>':'')+'</div><div class="meta"><div><b>Materijal</b>'+esc(x.material||'Nije navedeno')+'</div><div><b>PDV</b>'+esc(vat)+'</div><div><b>Opseg</b>'+esc(x.includes||'Nije navedeno')+'</div><div><b>Provjera</b>'+esc(fmtDate(x.checkedAt))+'</div></div>'+(x.note?'<div class="company">'+esc(x.note)+'</div>':'')+(x.source?'<a class="source-link" href="'+esc(x.source)+'" target="_blank" rel="noopener">Otvori izvor ↗</a>':'')+'</article>'}
+function renderPrices(){const r=filtered();$('#priceSummary').innerHTML=['Prikazano: <b>'+r.length+'</b>','Izvođača: <b>'+uniq(r.map(x=>x.company)).length+'</b>','Usporedivih: <b>'+r.filter(x=>x.comparable).length+'</b>'].map(x=>'<span class="pill">'+x+'</span>').join('');$('#priceList').innerHTML=r.map(priceCard).join('')||'<div class="panel muted">Nema stavki za odabrane filtre.</div>'}
+function renderContractors(){const q=$('#contractorSearch').value.trim().toLowerCase(),m={};rows.forEach(x=>{if(!m[x.company])m[x.company]={company:x.company,count:0,counties:new Set(),activities:new Set(),latest:'',source:x.web||x.source};const z=m[x.company];z.count++;z.counties.add(x.county);z.activities.add(x.activity);if(!z.latest||new Date(x.checkedAt)>new Date(z.latest))z.latest=x.checkedAt});const arr=Object.values(m).filter(x=>!q||x.company.toLowerCase().includes(q)).sort((a,b)=>b.count-a.count);$('#contractorList').innerHTML=arr.map(x=>'<article class="contractor-card"><div class="card-top"><div><strong>'+esc(x.company)+'</strong><div class="company">'+esc([...x.counties].join(', '))+'</div></div><div class="price">'+x.count+'<div class="company">stavki</div></div></div><div class="tag-row">'+[...x.activities].slice(0,4).map(a=>'<span class="tag">'+esc(a)+'</span>').join('')+'</div><div class="meta"><div><b>Županije</b>'+x.counties.size+'</div><div><b>Zadnja provjera</b>'+esc(fmtDate(x.latest))+'</div></div>'+(x.source?'<a class="source-link" href="'+esc(x.source)+'" target="_blank" rel="noopener">Web / cjenik ↗</a>':'')+'</article>').join('')||'<div class="panel muted">Nema izvođača.</div>'}
+function exportCSV(){const cols=['county','city','company','activity','sourceName','service','variant','unit','amount','vatStatus','vat','material','includes','checkedAt','source','note','comparable'],q=s=>'"'+String(s??'').replaceAll('"','""')+'"';const csv='\ufeff'+cols.join(';')+'\n'+filtered().map(x=>cols.map(c=>q(x[c])).join(';')).join('\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='Gradjevinske_cijene_HR_live.csv';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),500)}
+$$('.bottom-nav button').forEach(b=>b.addEventListener('click',()=>{$$('.bottom-nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');$$('.view').forEach(v=>v.classList.remove('active'));$('#view-'+b.dataset.view).classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}));
+['#searchInput','#countyFilter','#activityFilter','#unitFilter','#comparableOnly'].forEach(s=>$(s).addEventListener(s==='#searchInput'?'input':'change',renderPrices));
+$('#contractorSearch').addEventListener('input',renderContractors);$('#exportBtn').addEventListener('click',exportCSV);$('#refreshBtn').addEventListener('click',refresh);
+refresh();
+</script>
+</body>
+</html>
